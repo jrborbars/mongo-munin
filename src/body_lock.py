@@ -2,7 +2,9 @@
 name = "locked"
 
 def doData():
-    print name + ".value " + str( 100 * getServerStatus()["globalLock"]["ratio"] )
+    lock = getServerStatus()["globalLock"]["lockTime"]
+    total = getServerStatus()["globalLock"]["totalTime"]
+    print name + ".value " + str( 100.000 * lock / total )," %"
 
 def doConfig():
 
@@ -12,8 +14,3 @@ def doConfig():
     print "graph_category MongoDB"
 
     print name + ".label " + name
-
-
-
-
-
